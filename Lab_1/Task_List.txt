@@ -1,0 +1,4 @@
+Task Completion List:
+ - Miguel: Parts 1 and 2.
+ - John:   Parts 5 and 6.
+ - Cam:    Parts 3 and 4.
