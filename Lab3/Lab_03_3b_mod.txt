@@ -1,0 +1,9 @@
+...
+
+const int NUM_SAMPLES = 256;
+
+...
+
+if (++nSmpl > NUM_SAMPLES) MsTimer2::stop();    
+
+...
