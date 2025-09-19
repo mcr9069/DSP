@@ -19,7 +19,7 @@
 
 const int TSAMP_MSEC = 100; // senor: 100, sim: 10
 const int DAC0 = 3, DAC1 = 4, DAC2 = 5, LM61 = A0, VDITH = A1;
-const int NUM_SUBSAMPLES = 160, NUM_SAMPLES = 1024;
+const int NUM_SUBSAMPLES = 160, NUM_SAMPLES = 256;
   
 volatile boolean sampleFlag = false;
 int tick = 0;
@@ -49,9 +49,9 @@ void loop()
 {
   syncSample(); 
   
- sample = analogRead(LM61);
+ //sample = analogRead(LM61);
   //sample = analogReadAve();
-  //sample = testDAC(tick);
+  sample = testDAC(tick);
   //sample = testDAC(random(256));
   //sample = analogReadDitherAve();
   //sample = 185-0*tick/32.0+2*sin((tick/32.0)*TWO_PI);
