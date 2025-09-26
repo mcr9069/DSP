@@ -52,8 +52,8 @@ void loop()
  //sample = analogRead(LM61);
   //sample = analogReadAve();
   //sample = testDAC(tick);
-  sample = testDAC(random(256));
-  //sample = analogReadDitherAve();
+  //sample = testDAC(random(256));
+  sample = analogReadDitherAve();
   //sample = 185-0*tick/32.0+2*sin((tick/32.0)*TWO_PI);
 
   // recurseStats1(sample, mean, stdev);
