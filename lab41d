@@ -1,0 +1,17 @@
+%  SOLUTION
+
+% Inputs (change std_processed_measured to your measured value)
+std_baseline = .29;            %change to correct data
+std_processed_measured = .075; %change to correct data
+% Compute improvement
+R = std_baseline / std_processed_measured;
+extra_bits = log2(R);
+
+
+B0 = 10;
+effective_bits = B0 + extra_bits;
+
+% Display
+fprintf('Improvement ratio R = %.4f\n', R);
+fprintf('Extra bits = %.4f bits\n', extra_bits);
+fprintf('Effective bits (if original %d-bit) = %.4f bits\n', B0, effective_bits);
