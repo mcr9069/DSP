@@ -56,11 +56,24 @@ void calculateStats(float xi )
 {
   // Calculate running statistics per Cook pseudo code.
   static int tick = 1;
-  static float oldMean, oldRunningSumVar;
-  float mean, runningSumVar, variance;
+  static float oldMean = 0.0, oldRunningSumVar = 0.0;
+  float runningSumVar;
   
+  if (tick == 1) {
+    runningMean = xi;
+    runningStdev = 0;
+    oldMean = runningMean;
+    oldRunningSumVar = 0;
+  } else {
+    runningMean = oldMean + (xi - oldMean) / tick;
+    runningSumVar = oldRunningSumVar + (xi - oldMean) * (xi - runningMean);
+    runningStdev = sqrt(runningSumVar / (tick - 1));
+
+    oldMean = runningMean;
+    oldRunningSumVar = runningSumVar;
+  }
   
-  
+  tick++;
 }
 //**********************************************************************
 void displayStatsData(void)

@@ -51,8 +51,8 @@ void loop()
   
  //sample = analogRead(LM61);
   //sample = analogReadAve();
-  sample = testDAC(tick);
-  //sample = testDAC(random(256));
+  //sample = testDAC(tick);
+  sample = testDAC(random(256));
   //sample = analogReadDitherAve();
   //sample = 185-0*tick/32.0+2*sin((tick/32.0)*TWO_PI);
 
@@ -83,7 +83,14 @@ float testDAC(int index)
 //*******************************************************************
 float analogReadDitherAve(void)
 { 
-  return 0.0; // stub function return   
+  float sum = 0.0; int index;
+  for (int i = 0; i < NUM_SUBSAMPLES; i++) {
+    digitalWrite(DAC0, (i & B00000001)); // LSB bit mask
+    digitalWrite(DAC1, (i & B00000010));
+    digitalWrite(DAC2, (i & B00000100)); // MSB bit mask
+    sum += analogRead(LM61);
+  }
+  return sum/NUM_SUBSAMPLES;
 }
 
 //*******************************************************************
