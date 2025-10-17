@@ -1,0 +1,4 @@
+Lab 4 Task List:
+	John: 1a and 1b and everything in the report except the abstract and intro.
+	Cam: 1d and report intro and abstract.
+	Miguel: Supposedly all of 1c but none of the branches in our GitHub repo reflect this. 
